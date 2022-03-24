@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ventas",
+  "info": {
+    "singularName": "venta",
+    "pluralName": "ventas",
+    "displayName": "Venta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "precio_total": {
+      "type": "decimal"
+    },
+    "usuario": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "ventas"
+    },
+    "venta_detalles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::venta-detalle.venta-detalle",
+      "mappedBy": "venta"
+    }
+  }
+}
